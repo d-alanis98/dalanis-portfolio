@@ -1,0 +1,50 @@
+:root {
+  /* Primary Colors */
+  --primary-bg: #121212;
+  /* Main background (black) */
+  --primary-text: #ffffff;
+  /* Main text (white) */
+  --accent-color: #3498db;
+  /* Accent color (blue) */
+
+  /* Button Colors */
+  --button-bg: var(--accent-color);
+  --button-text: #ffffff;
+
+  /* Secondary Colors */
+  --secondary-bg: #1e1e1e;
+  /* Secondary background (dark gray) */
+  --secondary-text: #cccccc;
+  /* Secondary text (light gray) */
+
+  /* Other Colors */
+  --success: #28a745;
+  /* Color for indicating success */
+  --error: #dc3545;
+  /* Color for indicating error */
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  background: var(--primary-bg);
+  background-size: 224px;
+  color: var(--primary-text);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+code {
+  font-family:
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
+}

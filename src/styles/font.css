@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Spartan';
+  src: url('/src/assets/fonts/league_spartan/LeagueSpartan-Variable.ttf') format('truetype');
+  font-weight: medium;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Spartan ExtraBold';
+  src: url('/src/assets/fonts/league_spartan/static/LeagueSpartan-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Spartan Black';
+  src: url('/src/assets/fonts/league_spartan/static/LeagueSpartan-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

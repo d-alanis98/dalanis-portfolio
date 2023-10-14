@@ -1,0 +1,27 @@
+---
+interface Props {
+  as?: "div" | "main" | "header";
+  class?: String;
+  maxWidth?: "medium" | "large" | "extralarge";
+}
+
+const {
+  as: Element = "div",
+  class: className = "",
+  maxWidth = "extralarge",
+} = Astro.props;
+
+let maxWidthClass = "max-w-[1920px]";
+
+if (maxWidth === "large") {
+  maxWidthClass = "max-w-7xl";
+}
+
+if (maxWidth === "medium") {
+  maxWidthClass = "max-w-6xl";
+}
+---
+
+<Element class={`w-full ${maxWidthClass} ${className}`}>
+  <slot />
+</Element>

@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+// Assets
+import avatarImage from "../../assets/images/avatar.jpeg";
+// Components
+import Container from "../container/Container.astro";
+
+interface Props {
+  name: String;
+  role: String;
+  description: String;
+}
+
+const { name, role, description } = Astro.props;
+---
+
+<Container as="header" maxWidth="extralarge" class="header__container">
+  <div
+    class="header__title
+    gap-4 sm:gap-6
+    flex flex-col sm:flex-row
+    items-center justify-center"
+  >
+    <Image
+      src={avatarImage}
+      alt="Avatar image"
+      class={`bg-slate-500 rounded-full relative
+        h-[7rem] sm:h-[10rem] md:h-[18rem]
+        w-[7rem] sm:w-[10rem] md:w-[18rem]`}
+    />
+    <div class="flex flex-col gap-2">
+      <h1
+        class="font-spartanExtraBold pt-2
+          text-4xl 2xs:text-5xl sm:text-6xl md:text-7xl"
+      >
+        {name}
+      </h1>
+      <h2 class="text-xl 2xs:text-2xl sm:text-4xl md:text-3xl lg:text-5xl">
+        {role}
+      </h2>
+    </div>
+  </div>
+  <Container maxWidth="large" class="flex justify-center px-4">
+    <em class="text-md xs:text-lg 2xs:text-xl sm:text-2xl text-center">
+      {description}
+    </em>
+  </Container>
+</Container>
+
+<style>
+  .header__title {
+    width: 100%;
+    padding: 0 1rem;
+  }
+</style>
+
+<style is:inline>
+  .header__container {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background-image: url("../../../src/assets/images/header_background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover; /* For older versions of Safari */
+    -moz-background-size: cover; /* For Mozilla Firefox */
+    -o-background-size: cover; /* For Opera */
+    background-position: center center;
+    text-shadow: 1px 1px 5px var(--primary-bg);
+  }
+</style>
