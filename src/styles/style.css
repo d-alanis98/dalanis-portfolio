@@ -1,15 +1,15 @@
 :root {
   /* Primary Colors */
-  --primary-bg: #121212;
+  --primary-bg: #ffffff;
   /* Main background (black) */
-  --primary-text: #ffffff;
+  --primary-text: #121212;
   /* Main text (white) */
   --accent-color: #3498db;
   /* Accent color (blue) */
 
   /* Button Colors */
   --button-bg: var(--accent-color);
-  --button-text: #ffffff;
+  --button-text: var(--primary-text);
 
   /* Secondary Colors */
   --secondary-bg: #1e1e1e;

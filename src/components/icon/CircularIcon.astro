@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+// Components
+import FlexRow from "../container/flex/FlexRow.astro";
+
+interface Props {
+  icon: ImageMetadata;
+  iconAlt: string;
+  class?: string;
+  withBackground?: boolean;
+}
+
+const { icon, iconAlt, class: className, withBackground } = Astro.props;
+---
+
+<FlexRow
+  centered
+  class:list={[
+    "cursor-pointer p-2 rounded-full",
+    "hover:opacity-75 hover:scale-110",
+    className,
+    {
+      "bg-gray-500": !!withBackground,
+    },
+  ]}
+>
+  <Image class="w-7 h-7" src={icon} alt={iconAlt} />
+</FlexRow>

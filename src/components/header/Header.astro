@@ -1,73 +1,66 @@
 ---
-import { Image } from "astro:assets";
-// Assets
-import avatarImage from "../../assets/images/avatar.jpeg";
 // Components
+import FlexRow from "../container/flex/FlexRow.astro";
 import Container from "../container/Container.astro";
+import FlexColumn from "../container/flex/FlexColumn.astro";
+import CircularIcon from "../icon/CircularIcon.astro";
+// Icons
+import gitHubIconSrc from "../../assets/logos/github-mark/github-mark-white.svg";
+import linkedInIconSrc from "../../assets/logos/linkedin_icon_circle.svg";
+import envelopeIconSrc from "../../assets/images/envelope_icon_circle.svg";
 
 interface Props {
-  name: String;
-  role: String;
-  description: String;
+  name: string;
+  role: string;
+  description: string;
 }
 
 const { name, role, description } = Astro.props;
 ---
 
 <Container as="header" maxWidth="extralarge" class="header__container">
-  <div
-    class="header__title
-    gap-4 sm:gap-6
-    flex flex-col sm:flex-row
-    items-center justify-center"
-  >
-    <Image
-      src={avatarImage}
-      alt="Avatar image"
-      class={`bg-slate-500 rounded-full relative
-        h-[7rem] sm:h-[10rem] md:h-[18rem]
-        w-[7rem] sm:w-[10rem] md:w-[18rem]`}
+  <FlexRow centered class="gap-12">
+    <CircularIcon icon={gitHubIconSrc} iconAlt="GitHub circular SVG logo" />
+    <CircularIcon icon={linkedInIconSrc} iconAlt="LinkedIn circular SVG logo" />
+    <CircularIcon
+      icon={envelopeIconSrc}
+      iconAlt="Envelope circular SVG icon for email"
     />
-    <div class="flex flex-col gap-2">
-      <h1
-        class="font-spartanExtraBold pt-2
-          text-4xl 2xs:text-5xl sm:text-6xl md:text-7xl"
-      >
-        {name}
-      </h1>
-      <h2 class="text-xl 2xs:text-2xl sm:text-4xl md:text-3xl lg:text-5xl">
-        {role}
-      </h2>
-    </div>
-  </div>
-  <Container maxWidth="large" class="flex justify-center px-4">
-    <em class="text-md xs:text-lg 2xs:text-xl sm:text-2xl text-center">
-      {description}
-    </em>
-  </Container>
+  </FlexRow>
+  <FlexColumn centered class="gap-2">
+    <h1 class="text-7xl font-semibold text-center">{name}</h1>
+    <p class="text-4xl text-center">{role}</p>
+    <em class="text-xl font-light">{description}</em>
+  </FlexColumn>
 </Container>
 
-<style>
-  .header__title {
-    width: 100%;
-    padding: 0 1rem;
-  }
-</style>
-
-<style is:inline>
+<style is:global>
   .header__container {
-    padding: 2rem 1rem;
+    padding: 5rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    background-image: url("../../../src/assets/images/header_background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover; /* For older versions of Safari */
-    -moz-background-size: cover; /* For Mozilla Firefox */
-    -o-background-size: cover; /* For Opera */
-    background-position: center center;
-    text-shadow: 1px 1px 5px var(--primary-bg);
+    background:
+      url("/src/assets/images/man-developing-website-on-desk.svg") -130px bottom
+        no-repeat,
+      linear-gradient(273deg, #512da8 35.44%, #673ab7 66.64%, #7e57c2 86.4%);
+    background-size: contain;
+    color: #ffffff;
+  }
+
+  @media screen and (width < 1500px) {
+    .header__container {
+      text-shadow: 1px 1px 5px #000;
+    }
+  }
+
+  @media screen and (width < 1100px) {
+    .header__container {
+      background-size: 300px, cover;
+      background-position:
+        -90px bottom,
+        center center;
+    }
   }
 </style>

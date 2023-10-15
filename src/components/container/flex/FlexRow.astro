@@ -1,0 +1,24 @@
+---
+import Flex from "./Flex.astro";
+
+interface Props {
+  class?: string;
+  centered?: boolean;
+  spaceAround?: boolean;
+}
+
+const { class: className, centered, spaceAround } = Astro.props;
+---
+
+<Flex
+  class:list={[
+    "flex-row",
+    className,
+    {
+      "items-center justify-center": centered,
+      "items-center justify-around": spaceAround,
+    },
+  ]}
+>
+  <slot />
+</Flex>
