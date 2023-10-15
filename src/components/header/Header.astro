@@ -30,7 +30,7 @@ const { name, role, description } = Astro.props;
   <FlexColumn centered class="gap-2">
     <h1 class="text-7xl font-semibold text-center">{name}</h1>
     <p class="text-4xl text-center">{role}</p>
-    <em class="text-xl font-light">{description}</em>
+    <em class="text-xl">{description}</em>
   </FlexColumn>
 </Container>
 
@@ -57,7 +57,7 @@ const { name, role, description } = Astro.props;
 
   @media screen and (width < 1100px) {
     .header__container {
-      background-size: 300px, cover;
+      background-size: 375px, cover;
       background-position:
         -90px bottom,
         center center;
